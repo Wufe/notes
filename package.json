@@ -1,7 +1,7 @@
 {
   "scripts": {
     "compile": "webpack --config src/webpack.config.js",
-    "start": "serve -p 8092 ."
+    "start": "serve -p 8092 build"
   },
   "name": "notes",
   "version": "1.0.0",
@@ -39,6 +39,7 @@
     "webpack-node-externals": "^1.5.4"
   },
   "dependencies": {
+    "express": "^4.14.0",
     "serve": "^2.4.3"
   }
 }

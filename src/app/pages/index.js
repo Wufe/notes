@@ -1,2 +1,3 @@
-export {default as Index} from './index';
+export {default as AbstractDataStructures} from './abstractdatastructures';
+export {default as Home} from './home';
 export {default as Tree} from './tree';

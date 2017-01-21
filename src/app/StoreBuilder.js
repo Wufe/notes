@@ -1,5 +1,5 @@
 import {applyMiddleware, createStore, compose} from 'redux';
-import {browserHistory} from 'react-router';
+import {hashHistory} from 'react-router';
 import {syncHistoryWithStore} from 'react-router-redux';
 import {rootReducer} from './reducers';
 
@@ -24,7 +24,7 @@ class StoreBuilder{
 const storeBuilder = new StoreBuilder();
 const store = storeBuilder.getStore();
 const dispatch = store.dispatch;
-const history = syncHistoryWithStore( browserHistory, store );
+const history = syncHistoryWithStore( hashHistory, store );
 
 export {
 	StoreBuilder,
