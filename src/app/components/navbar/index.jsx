@@ -35,17 +35,17 @@ class Navbar extends Component{
                                         key: '/',
                                         links: [
                                             {
-                                                name: 'Algorithms and Data Structures',
+                                                name: 'Algoritmi e Strutture Dati',
                                                 key: '/asd',
                                                 url: '/asd',
                                                 links: [
                                                     {
-                                                        name: 'Abstract data structures',
+                                                        name: 'Strutture dati',
                                                         key: '/asd/abstract-data-structures',
                                                         url: '/asd/abstract-data-structures',
                                                         links: [
                                                             {
-                                                                name: 'Tree',
+                                                                name: 'Albero',
                                                                 key: '/asd/abstract-data-structures/tree',
                                                                 url: '/asd/abstract-data-structures/tree'
                                                             }
