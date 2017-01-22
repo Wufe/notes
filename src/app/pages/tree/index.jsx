@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Component} from 'react';
 import {BlockMath as B, InlineMath as I, Tab as T} from '../../components';
-import {Spec, Axiomatic, Syntactic, Semantic, Sort, Sorts} from '../../components/specification';
+import {Spec, Axiomatic, Function, Operator, Operators, Post, Pre, Syntactic, Semantic, Sort, Sorts} from '../../components/specification';
 
 export default class Tree extends Component{
 
@@ -32,41 +32,52 @@ export default class Tree extends Component{
 								sui figli di ogni nodo <I>u \in N</I> è definita una relazione d'ordine totale <I math="<"></I>.
 							</Sort>
 						</Sorts>
-						<div>
-							<span><h4>Operatori:</h4></span>
-							<ul>
-								<li>
+						<Operators>
+							<Operator>
+								<Function>
 									<I>creaAlbero() = T'</I>
-									<br />
-									<i>Post</i>: <I>T' = (\emptyset, \emptyset, \Lambda)</I>
-								</li>
-								<li>
+								</Function>
+								<Post>
+									<I>T' = (\emptyset, \emptyset, \Lambda)</I>
+								</Post>
+							</Operator>
+							<Operator>
+								<Function>
 									<I>alberoVuoto(T) = b</I>
-									<br />
-									<i>Post</i>: <I>b = vero</I> se <I>T=(\emptyset, \emptyset, \Lambda)</I>;
+								</Function>
+								<Post>
+									<I>b = vero</I> se <I>T=(\emptyset, \emptyset, \Lambda)</I>;
 									<br />
 									<T /><T /><I>b = falso</I> altrimenti.
-								</li>
-								<li>
+								</Post>
+							</Operator>
+							<Operator>
+								<Function>
 									<I>padre(u, T) = v</I>
-									<br />
-									<i>Pre</i>: <I>T=(N,A,r), r \neq \Lambda, N \neq \emptyset, A \neq \emptyset, u \in N, livello(u) > 0</I>,
+								</Function>
+								<Pre>
+									<I>T=(N,A,r), r \neq \Lambda, N \neq \emptyset, A \neq \emptyset, u \in N, livello(u) > 0</I>,
 									<br />
 									<T /><T /><I>\exists | w \in N t.c. (w,u) \in A</I>e<I>livello(w)=livello(u)-1</I>
-									<br />
-									<i>Post</i>: <I>v=w</I>
-								</li>
-								<li>
+								</Pre>
+								<Post>
+									<I>v=w</I>
+								</Post>
+							</Operator>
+							<Operator>
+								<Function>
 									<I>foglia(u,T)=b</I>
-									<br />
-									<i>Pre:</i> <I>T=(N,A,r), r \neq \Lambda, N \neq \emptyset, A \neq \emptyset, u \in N</I>
-									<br />
-									<i>Post</i>: <I>b = vero</I> se <I>\neg(\exists v \in N t.c. (u,v) \in A</I> e <I>livello(v)=livello(u)+1);</I>
+								</Function>
+								<Pre>
+									<I>T=(N,A,r), r \neq \Lambda, N \neq \emptyset, A \neq \emptyset, u \in N</I>
+								</Pre>
+								<Post>
+									<I>b = vero</I> se <I>\neg(\exists v \in N t.c. (u,v) \in A</I> e <I>livello(v)=livello(u)+1);</I>
 									<br />
 									<T /><T /><I>b = falso</I> altrimenti.
-								</li>
-							</ul>
-						</div>
+								</Post>
+							</Operator>
+						</Operators>
 						<table>
 							<thead>
 								<tr>
