@@ -1,9 +1,8 @@
 import * as React from 'react';
 import {Component} from 'react';
-import {BlockMath as B, InlineMath as I, Tab as T} from '../../components';
+import {BlockMath as B, InlineMath as I, Tab as _,
+		MultiLine, Line} from '../../components';
 import {Spec, Algebraic, Axiomatic, Function, Operator, Operators, Post, Pre, Syntactic, Semantic, Sort, Sorts, Table, THead, TBody, Observation} from '../../components/specification';
-
-const _ = T;
 
 export default class Tree extends Component{
 
@@ -50,7 +49,7 @@ export default class Tree extends Component{
 								<Post>
 									<I>b = vero</I> se <I>T=(\emptyset, \emptyset, \Lambda)</I>;
 									<br />
-									<T /><T /><I>b = falso</I> altrimenti.
+									<_ depth={2}/><I>b = falso</I> altrimenti.
 								</Post>
 							</Operator>
 							<Operator>
@@ -82,7 +81,7 @@ export default class Tree extends Component{
 								<Pre>
 									<I>T=(N,A,r), r \neq \Lambda, N \neq \emptyset, A \neq \emptyset, u \in N, livello(u) > 0</I>,
 									<br />
-									<T /><T /><I>\exists | w \in N t.c. (w,u) \in A</I>e<I>livello(w)=livello(u)-1</I>
+									<_ depth={2}/><I>\exists | w \in N t.c. (w,u) \in A</I>e<I>livello(w)=livello(u)-1</I>
 								</Pre>
 								<Post>
 									<I>v=w</I>
@@ -98,7 +97,7 @@ export default class Tree extends Component{
 								<Post>
 									<I>b = vero</I> se <I>\neg(\exists v \in N t.c. (u,v) \in A</I> e <I>livello(v)=livello(u)+1);</I>
 									<br />
-									<T /><T /><I>b = falso</I> altrimenti.
+									<_ depth={2}/><I>b = falso</I> altrimenti.
 								</Post>
 							</Operator>
 							<Operator>
@@ -108,9 +107,9 @@ export default class Tree extends Component{
 								<Pre>
 									<I>T=(N,A,r), r \neq \Lambda, N \neq \emptyset, u \in N,</I>
 									<br />
-									<T /><T /><I>\exists w \in N</I> tale che <I>(u,w) \in A</I> e <I>livello(w)=livello(u)+1</I> e
+									<_ depth={2}/><I>\exists w \in N</I> tale che <I>(u,w) \in A</I> e <I>livello(w)=livello(u)+1</I> e
 									<br />
-									<T /><T /><I>\forall w' \in N ((u,w') \in A \wedge w' \neq w ) \Rightarrow w &lt; w'</I>
+									<_ depth={2}/><I>\forall w' \in N ((u,w') \in A \wedge w' \neq w ) \Rightarrow w &lt; w'</I>
 								</Pre>
 								<Post>
 									v=w
@@ -126,7 +125,7 @@ export default class Tree extends Component{
 								<Post>
 									<I>b = vero, se \neg ( \exists v,w \in N (w,u) \in A \wedge (w,v) \in A \wedge u &lt; v );</I>
 									<br />
-									<T /><T /><I>b = falso</I> altrimenti.
+									<_ depth={2}/><I>b = falso</I> altrimenti.
 								</Post>
 							</Operator>
 							<Operator>
@@ -136,9 +135,9 @@ export default class Tree extends Component{
 								<Pre>
 									<I>T=(N,A,r), r \neq \Lambda, N \neq \emptyset, u \in N,</I>
 									<br />
-									<T /><T /><I>\exists x,w \in N (w,u) \in A \wedge (w,x) \in A \wedge u &lt; x</I> <I>\wedge</I>
+									<_ depth={2}/><I>\exists x,w \in N (w,u) \in A \wedge (w,x) \in A \wedge u &lt; x</I> <I>\wedge</I>
 									<br />
-									<T /><T /><I>( \forall y \in N u &lt; y \wedge y \neq x \wedge (w,y) \in A \Rightarrow x &lt; y)</I>
+									<_ depth={2}/><I>( \forall y \in N u &lt; y \wedge y \neq x \wedge (w,y) \in A \Rightarrow x &lt; y)</I>
 								</Pre>
 								<Post>
 									<I>v=x</I>
@@ -154,9 +153,9 @@ export default class Tree extends Component{
 								<Post>
 									<I>T''</I> è ottenuto da <I>T</I> aggiungendovi l'albero <I>T'</I> la cui radice <I>r'</I>
 									<br />
-									<T /><T />diventa il primo figlio del nodo <I>u</I>, cioè <I>r' &lt; v</I> per ogni figlio <I>v</I>
+									<_ depth={2}/>diventa il primo figlio del nodo <I>u</I>, cioè <I>r' &lt; v</I> per ogni figlio <I>v</I>
 									<br />
-									<T /><T />di <I>u</I> in <I>T</I>.
+									<_ depth={2}/>di <I>u</I> in <I>T</I>.
 								</Post>
 							</Operator>
 							<Operator>
@@ -169,11 +168,11 @@ export default class Tree extends Component{
 								<Post>
 									<I>T''</I> è ottenuto da <I>T</I> aggiungendovi l'albero <I>T'</I> la cui radice <I>r'</I>
 									<br />
-									<T /><T />diventa il nuovo fratello che segue immediatamente <I>u</I> nella
+									<_ depth={2}/>diventa il nuovo fratello che segue immediatamente <I>u</I> nella
 									<br />
-									<T /><T />relazione d'ordine, cioè <I>u &lt; r'</I> e non ci sono altri nodi <I>v</I> tali che
+									<_ depth={2}/>relazione d'ordine, cioè <I>u &lt; r'</I> e non ci sono altri nodi <I>v</I> tali che
 									<br />
-									<T /><T /><I>u &lt; v &lt; r'</I>
+									<_ depth={2}/><I>u &lt; v &lt; r'</I>
 								</Post>
 							</Operator>
 							<Operator>
@@ -186,7 +185,7 @@ export default class Tree extends Component{
 								<Post>
 									<I>T'</I> è ottenuto da <I>T</I> togliendovi il sottoalbero di radice <I>u</I>, cioè
 									<br />
-									<T /><T /><I>u</I> stesso e tutti i discendenti di <I>u</I>.
+									<_ depth={2}/><I>u</I> stesso e tutti i discendenti di <I>u</I>.
 								</Post>
 							</Operator>
 						</Operators>
@@ -210,14 +209,23 @@ export default class Tree extends Component{
 									<I>false</I>
 								</Observation>
 								<Observation>
-									<I math="\grave{e}Contenuto(v,t')" />
+									<I math="\grave{e}contenuto(v,t')" />
 									<I>false</I>
 									<I>v=u</I>
-									<div>
-										<I>if(v=u)</I><I>then</I><I>true</I>
-										<br />
-										<I>else</I><I>isin(v,t)</I><I>or</I><I>isin(v,s)</I>
-									</div>
+									<MultiLine>
+										<Line>
+											<I>if(v=u)</I>then
+										</Line>
+										<Line depth={1}>
+											true
+										</Line>
+										<Line>
+											else
+										</Line>
+										<Line depth={1}>
+											<I math="\grave{e}contenuto(v,t)" />or<I math="\grave{e}contenuto(v,s)" />
+										</Line>
+									</MultiLine>
 								</Observation>
 								<Observation>
 									<I>radice(t')</I>
@@ -226,41 +234,84 @@ export default class Tree extends Component{
 									<I>radice(t)</I>
 								</Observation>
 								<Observation>
-									<I>parent(v,t')</I>
+									<I>padre(v,t')</I>
 									<I>error</I>
 									<I>error</I>
-									<div style={{
-										textAlign: "left"
-									}}>
-										<I>if</I> <I math="\grave{e}Contenuto(v,s)" /> <I>then</I><br />
-										<_ /><I>if</I> <I>v = root(s)</I> <I>then</I><br />
-										<_ /><_ /><I>u</I><br />
-										<_ /><I>else</I><br />
-										<_ /><_ /><I>parent(v,s)</I><br />
-										<I>else</I><br />
-										<_ /><I>if</I> <I math="\grave{e}Contenuto(v,t)" /> <I>then</I><br />
-										<_ /><_ /><I>if</I> <I>v=root(t)</I> <I>then</I><br />
-										<_ /><_ /><_ /><I>error</I><br />
-										<_ /><_ /><I>else</I><br />
-										<_ /><_ /><_ /><I>parent(v,t)</I><br />
-										<_ /><I>else</I><br />
-										<_ /><_ /><I>error</I><br />
-
-									</div>
+									<MultiLine>
+										<Line>
+											if <I math="\grave{e}contenuto(v,s)" /> then
+										</Line>
+										<Line depth={1}>
+											if <I>v = radice(s)</I> then
+										</Line>
+										<Line depth={2}>
+											<I>u</I>
+										</Line>
+										<Line depth={1}>
+											else
+										</Line>
+										<Line depth={2}>
+											<I>padre(v,s)</I>
+										</Line>
+										<Line>
+											else
+										</Line>
+										<Line depth={1}>
+											if <I math="\grave{e}contenuto(v,t)" /> then
+										</Line>
+										<Line depth={2}>
+											if <I>v=radice(t)</I> then
+										</Line>
+										<Line depth={3}>
+											<I>error</I>
+										</Line>
+										<Line depth={2}>
+											else
+										</Line>
+										<Line depth={3}>
+											<I>padre(v,t)</I>
+										</Line>
+										<Line depth={1}>
+											else
+										</Line>
+										<Line depth={2}>
+											<I>error</I>
+										</Line>
+									</MultiLine>
 								</Observation>
 								<Observation>
-									<I>primoFiglio(v,t')</I>
+									<I>foglia(v,t')</I>
+									<I>error</I>
+									<MultiLine>
+										<I>if</I><I>v=u</I><I>then</I><br />
+										<_ /><I>true</I><br />
+										<I>else</I><br />
+										<_ /><I>error</I>
+									</MultiLine>
+									<MultiLine>
+										<I>if</I> <I>v=u</I> <I>then</I><br />
+										<_ /><I>false</I><br />
+										<I>else</I><br />
+										<_ /><I>if</I> <I math="\grave{e}contenuto(v,t)" /> <I>then</I> <br />
+										<_ depth={2}/><I>foglia(v,t)</I><br />
+										<_ /><I>else</I><br />
+										<_ depth={2}/><I>foglia(v,s)</I>
+
+									</MultiLine>
+								</Observation>
+								<Observation>
+									<I>primofiglio(v,t')</I>
 									<I>error</I>
 									<I>error</I>
-									<div>
-										<I>if(v=u)</I><I>then</I><I>radice(s)</I>
-										<br />
-										<I>else</I>
-										<br />
-										<I>if(isin(v,s))</I><I>then</I><I>primofiglio(v,s)</I>
-										<br />
-										<I>else</I><I>primofiglio(v,t)</I>
-									</div>
+									<MultiLine>
+										<I>if(v=u)</I><I>then</I><br />
+										<_ /><I>radice(s)</I><br />
+										<I>else</I><br />
+										<_ /><I math="if \grave{e}contenuto(v,s)" /><I>then</I><br />
+										<_ depth={2}/><I>primofiglio(v,s)</I><br />
+										<_ /><I>else</I><br />
+										<_ depth={2}/><I>primofiglio(v,t)</I>
+									</MultiLine>
 								</Observation>
 							</TBody>
 						</Table>
