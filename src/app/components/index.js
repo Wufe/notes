@@ -5,3 +5,4 @@ export {default as InlineMath} from './inlinemath';
 export {default as Tab} from './tab';
 export {default as MultiLine} from './multiline';
 export {default as Line} from './line';
+export {default as Comment} from './comment';

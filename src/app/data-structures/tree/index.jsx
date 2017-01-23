@@ -283,20 +283,41 @@ export default class Tree extends Component{
 									<I>foglia(v,t')</I>
 									<I>error</I>
 									<MultiLine>
-										<I>if</I><I>v=u</I><I>then</I><br />
-										<_ /><I>true</I><br />
-										<I>else</I><br />
-										<_ /><I>error</I>
+										<Line>
+											if <I>v=u</I> then
+										</Line>
+										<Line depth={1}>
+											<I>true</I>
+										</Line>
+										<Line>
+											else
+										</Line>
+										<Line depth={1}>
+											<I>error</I>
+										</Line>
 									</MultiLine>
 									<MultiLine>
-										<I>if</I> <I>v=u</I> <I>then</I><br />
-										<_ /><I>false</I><br />
-										<I>else</I><br />
-										<_ /><I>if</I> <I math="\grave{e}contenuto(v,t)" /> <I>then</I> <br />
-										<_ depth={2}/><I>foglia(v,t)</I><br />
-										<_ /><I>else</I><br />
-										<_ depth={2}/><I>foglia(v,s)</I>
-
+										<Line>
+											if <I>v=u</I> then
+										</Line>
+										<Line depth={1}>
+											<I>false</I>
+										</Line>
+										<Line>
+											else
+										</Line>
+										<Line depth={1}>
+											if <I math="\grave{e}contenuto(v,t)" /> then
+										</Line>
+										<Line depth={2}>
+											<I>foglia(v,t)</I>
+										</Line>
+										<Line depth={1}>
+											else
+										</Line>
+										<Line depth={2}>
+											<I>foglia(v,s)</I>
+										</Line>
 									</MultiLine>
 								</Observation>
 								<Observation>

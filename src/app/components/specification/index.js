@@ -14,3 +14,4 @@ export {default as Table} from './table';
 export {default as THead} from './thead';
 export {default as TBody} from './tbody';
 export {default as Observation} from './observation';
+export {default as Declare} from './declare';

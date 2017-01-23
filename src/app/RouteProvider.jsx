@@ -3,7 +3,8 @@ import * as ReactRouter from 'react-router';
 import {IndexRoute, Route, Router} from 'react-router';
 import {dispatch, history} from '.';
 import {Structure} from './components';
-import {AbstractDataStructures, Home, Tree} from './pages';
+import {AbstractDataStructures, Home} from './pages';
+import {Tree, Trie} from './data-structures';
 
 class RouteProvider{
 	getRoutes(){
@@ -15,6 +16,7 @@ class RouteProvider{
 						<Route path='abstract-data-structures'>
 							<IndexRoute component={AbstractDataStructures} />
 							<Route path='tree' component={Tree} />
+							<Route path='trie' component={Trie} />
 						</Route>
 					</Route>
 				</Route>

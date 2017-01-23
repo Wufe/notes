@@ -48,6 +48,11 @@ class Navbar extends Component{
                                                                 name: 'Albero',
                                                                 key: '/asd/abstract-data-structures/tree',
                                                                 url: '/asd/abstract-data-structures/tree'
+                                                            },
+                                                            {
+                                                                name: 'Trie',
+                                                                key: '/asd/abstract-data-structures/trie',
+                                                                url: '/asd/abstract-data-structures/trie'
                                                             }
                                                         ], isExpanded: true
                                                     }
