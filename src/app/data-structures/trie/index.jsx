@@ -34,7 +34,8 @@ export default class Trie extends Component{
                             <Sort
                                 name="lista">
                                 insieme delle liste.<br />
-                                Ogni lista è una sequenza di elementi di tipo stringa.
+                                Ogni lista è una sequenza di elementi di tipo stringa.<br />
+                                <I>\Lambda</I> indica la lista vuota.
                             </Sort>
                             <Sort
                                 name="trie">
@@ -157,7 +158,8 @@ export default class Trie extends Component{
                             <I>primiCaratteri(intero,stringa) \rightarrow stringa</I><br />
                             che restituisce i primi <I>n</I> caratteri della stringa nel secondo parametro, dove <I>n</I> è il primo parametro.
                             <br /><br />
-                            Sono inoltre definiti due operatori d'ausilio alla creazione di elementi di tipo lista:<br />
+                            Sono inoltre definiti due operatori d'ausilio alla creazione e all'utilizzo di elementi di tipo lista.<br />
+                            La lista conterrà elementi di tipo stringa.<br />
                             <I>newList() \rightarrow lista</I><br />
                             che crea una lista vuota, <br />
                             <I>addList(stringa, lista) \rightarrow lista</I><br />
