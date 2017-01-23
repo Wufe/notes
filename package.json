@@ -1,7 +1,7 @@
 {
   "scripts": {
     "compile": "webpack --config src/webpack.config.js",
-    "start": "serve -p 8092 build"
+    "start": "serve -p 8085 build"
   },
   "name": "notes",
   "version": "1.0.0",
