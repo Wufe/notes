@@ -21,7 +21,10 @@ export default class AbstractDataStructures extends Component{
                 <h2>Abstract Data Structures</h2>
                 <ul>
                     <li>
-                        <a onClick={this._onClick} href="/tree">Tree</a>
+                        <a onClick={this._onClick} href="/#/asd/abstract-data-structures/tree">Albero</a>
+                    </li>
+                    <li>
+                        <a onClick={this._onClick} href="/#/asd/abstract-data-structures/trie">Trie</a>
                     </li>
                 </ul>
 
