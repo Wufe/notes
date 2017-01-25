@@ -14,7 +14,7 @@ module.exports = {
     },
     output: {
         publicPath: "/",
-        path: path.resolve( path.join( prod ? 'dist' : 'build', 'resources', 'assets' ) ),
+        path: path.resolve( path.join( 'build', 'resources', 'assets' ) ),
         filename: "javascript/[name].bundle.js",
         chunkFilename: 'javascript/[name].chunk.js'
     },
@@ -40,28 +40,28 @@ module.exports = {
             }
         ]
     },
-    plugins: prod ? 
-    [
-        new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-            debug: false,
-            minimize: true,
-            sourceMap: false,
-            output: {
-                comments: false
-            },
-            compressor: {
-                warnings: false
-            },
-            mangle: false
-        }),
-        new webpack.DefinePlugin({
-            'process.env': {
-                'NODE_ENV': JSON.stringify( 'production' )
-            }
-        })
-    ]
+    plugins: prod ?
+        [
+            new webpack.optimize.DedupePlugin(),
+            new webpack.optimize.OccurrenceOrderPlugin(),
+            new webpack.optimize.UglifyJsPlugin({
+                debug: false,
+                minimize: true,
+                sourceMap: false,
+                output: {
+                    comments: false
+                },
+                compressor: {
+                    warnings: false
+                },
+                mangle: false
+            }),
+            new webpack.DefinePlugin({
+                'process.env': {
+                    'NODE_ENV': JSON.stringify( 'production' )
+                }
+            })
+        ]
     : [
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.NoErrorsPlugin()
