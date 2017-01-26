@@ -37,8 +37,8 @@ export default class PriorityQueue extends Component{
                             <Sort
                                 name="pq">
                                 insieme {MC.MATHCAL_P} delle code con priorità.<br />
-                                Ogni <I>P \in</I>{MC.MATHCAL_P} è una sequenza <I>&lt;a_1,a_2,...,a_n&gt;</I> di elementi di tipo <I>item</I>.<br />
-                                L'i-esimo elemento della sequenza ha valore <I>a_i \in I</I> e <I>pr(a_i) \in</I>{MC.MATHBB_N_PLUS}.<br />
+                                Ogni <I>P \in</I>{MC.MATHCAL_P} è una sequenza <I>&lt;(p_0,a_0), ..., (p_n,a_0)&gt;</I>, <I>n \geq 0</I>, <br />
+                                ogni elemento cioè, è una coppia <I math="(p,a) \in \mathbb{N} \times I" />.<br />
                                 <I>\Lambda</I> indica la sequenza vuota.
                             </Sort>
                         </Sorts>
@@ -67,15 +67,19 @@ export default class PriorityQueue extends Component{
                                     <I>insert(P,a,p) = P'</I>
                                 </Function>
                                 <Pre>
-                                    <I>P = &lt;a_1,a_2,...,a_n&gt;, n &gt; 0</I> oppure <I>P = \Lambda</I>;
-                                    <Line depth={2}>
-                                        <I>a \notin P</I>
-                                    </Line>
+                                    <I>a \notin P</I>
                                 </Pre>
                                 <Post>
-                                    <I>P' = &lt;a&gt;,</I><I>pr(a)=p</I> se <I>P = \Lambda</I>;
+                                    <I>P' = &lt;(p,a)&gt;</I> se <I>P = \Lambda</I>;
                                     <Line depth={2}>
-                                        <I>P' = &lt;a_1,a_2,...,a_n,a&gt;,</I><I>pr(a)=p</I> se <I>P \neq \Lambda</I>.
+                                        <I>P' = &lt;(p_0,a_0),...,(p_n,a_n),(p,a)&gt;</I> se <I>p_n \leq p</I>;
+                                    </Line>
+                                    <Line depth={2}>
+                                        <I>P' = &lt;(p_0,a_0),...,(p_i,a_i),(p,a),(p_j,a_j),...,(p_n,a_n)&gt;</I> se
+                                        <I>\exists i,j \in [0,n]</I> t.c. <I>p_i \leq p &lt; p_j</I>;
+                                    </Line>
+                                    <Line depth={2}>
+                                        <I>P' = &lt;(p,a),(p_0,a_0),...,(p_n,a_n)&gt;</I> altrimenti.
                                     </Line>
                                 </Post>
                             </Operator>
@@ -84,10 +88,12 @@ export default class PriorityQueue extends Component{
                                     <I>getPriority(P,a) = p</I>
                                 </Function>
                                 <Pre>
-                                    <I>P = &lt;a_1,a_2,...,a_n&gt;, n &gt; 0 \wedge a \in P</I>
+                                    <I>P = &lt;(p_0,a_0),...,(p_n,a_n)&gt;, n \geq 0</I>
+                                    <I>\wedge</I>
+                                    <I>\exists i \in [0,n]</I> t.c. <I>(p_i,a) \in P</I>
                                 </Pre>
                                 <Post>
-                                    <I>p = pr(a)</I>
+                                    <I>p = p_i</I>
                                 </Post>
                             </Operator>
                             <Operator>
@@ -95,13 +101,10 @@ export default class PriorityQueue extends Component{
                                     <I>first(P) = a</I>
                                 </Function>
                                 <Pre>
-                                    <I>P = &lt;a_1,a_2,...,a_n&gt;, n &gt; 0 \wedge</I>
-                                    <Line depth={2}>
-                                        <I>\exists a_x, x \in [1,n]</I> t.c. <I>\forall i \in [1,n]</I><I>a_i \neq a_x \Rightarrow pr(a_x) \leq pr(a_i)</I>
-                                    </Line>
+                                    <I>P = &lt;(p_0,a_0),...,(p_n,a_n)&gt;, n \geq 0</I>
                                 </Pre>
                                 <Post>
-                                    <I>a = a_x</I>
+                                    <I>a = a_0</I>
                                 </Post>
                             </Operator>
                             <Operator>
@@ -109,15 +112,12 @@ export default class PriorityQueue extends Component{
                                     <I>delFirst(P) = P'</I>
                                 </Function>
                                 <Pre>
-                                    <I>P = &lt;a_1,a_2,...,a_n&gt;, n &gt; 0 \wedge</I>
-                                    <Line depth={2}>
-                                        <I>\exists a_x, x \in [1,n]</I> t.c. <I>\forall i \in [1,n]</I><I>a_i \neq a_x \Rightarrow pr(a_x) \leq pr(a_i)</I>
-                                    </Line>
+                                    <I>P = &lt;(p_0,a_0),(p_1,a_1),...,(p_n,a_n)&gt;, n \geq 0</I>
                                 </Pre>
                                 <Post>
                                     <I>P' = \Lambda</I> se <I>n=1</I>;
                                     <Line depth={2}>
-                                        <I math="P' = <a_1, a_2, ..., a_{x-1}, a_{x+1}, ..., a_n>" /> altrimenti.
+                                        <I>P' = &lt;(p_1,a_1),...,(p_n,a_n)&gt;</I> altrimenti.
                                     </Line>
                                 </Post>
                             </Operator>
@@ -126,10 +126,18 @@ export default class PriorityQueue extends Component{
                                     <I>changePriority(P,a,p) = P'</I>
                                 </Function>
                                 <Pre>
-                                    <I>P = &lt;a_1,a_2,...,a_n&gt;, n &gt; 0 \wedge a \in P</I>
+                                    <I>P = &lt;(p_0,a_0),...,(p_n,a_n)&gt;, n \geq 0</I>
+                                    <I>\wedge</I>
+                                    <I>\exists i \in [0,n]</I> t.c. <I>(p_i,a) \in P</I>
                                 </Pre>
                                 <Post>
-                                    <I>P' = P</I> con <I>pr(a) = p</I>.
+                                    <I>P' = &lt;(p,a),(p_1,a_1),...,(p_n,a_2)&gt;</I> se <I>i = 0</I>;
+                                    <Line depth={2}>
+                                        <I math="P' = <(p_0,a_0),...,(p_{n-1},a_{n-1}),(p,a)>" /> se <I>i = n</I>;
+                                    </Line>
+                                    <Line depth={2}>
+                                        <I math="P' = <(p_0,a_0),...,(p_{i-1},a_{i-1}),(p,a),(p_{i+1},a_{i+1}),...,(p_n,a_n)>" /> altrimenti.
+                                    </Line>
                                 </Post>
                             </Operator>
                             <Operator>
@@ -148,13 +156,20 @@ export default class PriorityQueue extends Component{
                                     <I>equal(P,P') = b</I>
                                 </Function>
                                 <Pre>
-                                    <I>(P = \Lambda \vee P = &lt; a_1, a_2, ..., a_n &gt;, n &gt; 0) \wedge</I>;
+                                    <I>(P = \Lambda \vee P = &lt;(p_0,a_0),...,(p_n,a_n)&gt;, n \geq 0)</I>
+                                    <I>\wedge</I>;
                                     <Line depth={2}>
-                                        <I>(P' = \Lambda \vee P' = &lt; a'_1, a'_2, ..., a'_m &gt;, m &gt; 0)</I>
+                                        <I>(P' = \Lambda \vee P' = &lt;(p'_0,a'_0),...,(p'_m,a'_m)&gt;, m \geq 0)</I>
                                     </Line>
                                 </Pre>
                                 <Post>
-                                    <I>b = vero</I> se <I>\forall i \in [1,n]</I><I>\exists j \in [1,m]</I> t.c. <I>a_i = a'_m</I>;
+                                    <I>b = vero</I> se
+                                    <Line depth={2}>
+                                        <I>(\forall i \in [1,n]</I><I>\exists j \in [1,m]</I> t.c. <I>p_i = p'_j</I><I>\wedge</I><I>a_i = a'_j)</I> <I>\wedge</I>
+                                    </Line>
+                                    <Line depth={2}>
+                                        <I>(\forall j \in [1,m]</I><I>\exists i \in [1,n]</I> t.c. <I>p'_j = p_i</I><I>\wedge</I><I>a'_j = a_i)</I>;
+                                    </Line>
                                     <Line depth={2}>
                                         <I>b = falso</I> altrimenti.
                                     </Line>
@@ -168,6 +183,10 @@ export default class PriorityQueue extends Component{
                         <Declare>
                             <I>P,P',P'': pq,</I> <I>a,a': item,</I> <I>p,p':</I><I math="priorit\grave{a}" />
                         </Declare>
+                        <Comment>
+                            Per la sorta item è definito l'operatore infisso:<br />
+                            <I>= : item \times item \Rightarrow boolean</I> che predica se due item sono uguali.
+                        </Comment>
                         <Table>
                             <THead
                                 mainSort="P'"
@@ -240,7 +259,7 @@ export default class PriorityQueue extends Component{
                                             else
                                         </Line>
                                         <Line depth={1}>
-                                            <I>delFirst(P)</I>
+                                            <I>insert(delFirst(P),a,p)</I>
                                         </Line>
                                     </MultiLine>
                                 </Observation>
