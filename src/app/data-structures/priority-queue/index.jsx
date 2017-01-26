@@ -162,6 +162,141 @@ export default class PriorityQueue extends Component{
                         </Operators>
                     </Semantic>
                 </Axiomatic>
+                <Algebraic>
+                    <Semantic>
+                        <Declare>
+                            <I>P,P',P'': pq,</I> <I>a,a': item,</I> <I>p,p':</I><I math="priorit\grave{a}" />
+                        </Declare>
+                        <Table>
+                            <THead
+                                mainSort="P'"
+                                numberOfConstructors={2}>
+                                <I>newPQ()</I>
+                                <I>insert(P,a,p)</I>
+                            </THead>
+                            <TBody>
+                                <Observation>
+                                    <I>isNew(P')</I>
+                                    <I>true</I>
+                                    <I>false</I>
+                                </Observation>
+                                <Observation>
+                                    <I>getPriority(P',a')</I>
+                                    <I>error</I>
+                                    <MultiLine>
+                                        <Line>
+                                            if <I>a' = a</I> then
+                                        </Line>
+                                        <Line depth={1}>
+                                            <I>p</I>
+                                        </Line>
+                                        <Line>
+                                            else
+                                        </Line>
+                                        <Line depth={1}>
+                                            <I>getPriority(P,a')</I>
+                                        </Line>
+                                    </MultiLine>
+                                </Observation>
+                                <Observation>
+                                    <I>first(P')</I>
+                                    <I>error</I>
+                                    <MultiLine>
+                                        <Line>
+                                            if <I>size(P) = 0</I> then
+                                        </Line>
+                                        <Line depth={1}>
+                                            <I>a</I>
+                                        </Line>
+                                        <Line>
+                                            else
+                                        </Line>
+                                        <Line depth={1}>
+                                            if <I>p \leq first(P)</I> then
+                                        </Line>
+                                        <Line depth={2}>
+                                            <I>a</I>
+                                        </Line>
+                                        <Line depth={1}>
+                                            else
+                                        </Line>
+                                        <Line depth={2}>
+                                            <I>first(P)</I>
+                                        </Line>
+                                    </MultiLine>
+                                </Observation>
+                                <Observation>
+                                    <I>delFirst(P')</I>
+                                    <I>error</I>
+                                    <MultiLine>
+                                        <Line>
+                                            if <I>a = first(P')</I> then
+                                        </Line>
+                                        <Line depth={1}>
+                                            <I>P</I>
+                                        </Line>
+                                        <Line>
+                                            else
+                                        </Line>
+                                        <Line depth={1}>
+                                            <I>delFirst(P)</I>
+                                        </Line>
+                                    </MultiLine>
+                                </Observation>
+                                <Observation>
+                                    <I>changePriority(P',a',p')</I>
+                                    <I>error</I>
+                                    <MultiLine>
+                                        <Line>
+                                            if <I>a'=a</I> then
+                                        </Line>
+                                        <Line depth={1}>
+                                            <I>insert(P,a,p')</I>
+                                        </Line>
+                                        <Line>
+                                            else
+                                        </Line>
+                                        <Line depth={1}>
+                                            <I>insert(changePriority(P,a',p'),a,p)</I>
+                                        </Line>
+                                    </MultiLine>
+                                </Observation>
+                                <Observation>
+                                    <I>size(P')</I>
+                                    <I>0</I>
+                                    <I>1 + size(P)</I>
+                                </Observation>
+                                <Observation>
+                                    <I>equal(P',P'')</I>
+                                    <I>isNew(P'')</I>
+                                    <MultiLine>
+                                        <Line>
+                                            if <I>isNew(P')</I> then
+                                        </Line>
+                                        <Line depth={1}>
+                                            <I>false</I>
+                                        </Line>
+                                        <Line>
+                                            else
+                                        </Line>
+                                        <Line depth={1}>
+                                            if <I>first(P') = first(P'')</I> then
+                                        </Line>
+                                        <Line depth={2}>
+                                            <I>equal(delFirst(P'), delFirst(P''))</I>
+                                        </Line>
+                                        <Line depth={1}>
+                                            else
+                                        </Line>
+                                        <Line depth={2}>
+                                            <I>false</I>
+                                        </Line>
+                                    </MultiLine>
+                                </Observation>
+                            </TBody>
+                        </Table>
+                    </Semantic>
+                </Algebraic>
             </Spec>
         );
     }
