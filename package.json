@@ -1,7 +1,9 @@
 {
   "scripts": {
     "compile": "webpack --config src/webpack.config.js",
-    "start": "serve -p 8085 build"
+    "watch": "npm run -s compile -- --watch",
+    "start": "serve -p 8085 build",
+    "dev": "npm-run-all --parallel watch start"
   },
   "name": "notes",
   "version": "1.0.0",
@@ -23,6 +25,7 @@
     "json-loader": "^0.5.4",
     "katex": "^0.7.0",
     "node-sass": "^4.3.0",
+    "npm-run-all": "^4.0.1",
     "office-ui-fabric-react": "^1.2.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",

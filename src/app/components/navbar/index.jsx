@@ -53,6 +53,11 @@ class Navbar extends Component{
                                                                 name: 'Trie',
                                                                 key: '/asd/abstract-data-structures/trie',
                                                                 url: '/asd/abstract-data-structures/trie'
+                                                            },
+                                                            {
+                                                                name: 'Coda con priorità',
+                                                                key: '/asd/abstract-data-structures/priority-queue',
+                                                                url: '/asd/abstract-data-structures/priority-queue'
                                                             }
                                                         ], isExpanded: true
                                                     }

@@ -26,6 +26,9 @@ export default class AbstractDataStructures extends Component{
                     <li>
                         <a onClick={this._onClick} href="/asd/abstract-data-structures/trie">Trie</a>
                     </li>
+                    <li>
+                        <a onClick={this._onClick} href="/asd/abstract-data-structures/priority-queue">Coda con priorità</a>
+                    </li>
                 </ul>
 
             </div>
