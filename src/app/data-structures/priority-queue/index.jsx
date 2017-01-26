@@ -12,7 +12,8 @@ export default class PriorityQueue extends Component{
     render(){
         return (
             <Spec
-                name="Coda con priorità">
+                name="Coda con priorità"
+                file="Scritto20160118.pdf">
                 <Axiomatic>
                     <Semantic>
                         <Sorts>
