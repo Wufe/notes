@@ -185,7 +185,7 @@ export default class PriorityQueue extends Component{
                         </Declare>
                         <Comment>
                             Per la sorta item è definito l'operatore infisso:<br />
-                            <I>= : item \times item \Rightarrow boolean</I> che predica se due item sono uguali.
+                            <I>= : item \times item \rightarrow boolean</I> che predica se due item sono uguali.
                         </Comment>
                         <Table>
                             <THead

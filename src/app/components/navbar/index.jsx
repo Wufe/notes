@@ -50,15 +50,20 @@ class Navbar extends Component{
                                                                 url: '/asd/abstract-data-structures/tree'
                                                             },
                                                             {
-                                                                name: 'Trie',
-                                                                key: '/asd/abstract-data-structures/trie',
-                                                                url: '/asd/abstract-data-structures/trie'
+                                                                name: 'Biblioteca',
+                                                                key: '/asd/abstract-data-structures/library',
+                                                                url: '/asd/abstract-data-structures/library'
                                                             },
                                                             {
                                                                 name: 'Coda con priorità',
                                                                 key: '/asd/abstract-data-structures/priority-queue',
                                                                 url: '/asd/abstract-data-structures/priority-queue'
-                                                            }
+                                                            },
+                                                            {
+                                                                name: 'Trie',
+                                                                key: '/asd/abstract-data-structures/trie',
+                                                                url: '/asd/abstract-data-structures/trie'
+                                                            },
                                                         ], isExpanded: true
                                                     }
                                                 ], isExpanded: true

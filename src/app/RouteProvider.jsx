@@ -4,7 +4,7 @@ import {IndexRoute, Route, Router} from 'react-router';
 import {dispatch, history} from '.';
 import {Structure} from './components';
 import {AbstractDataStructures, Home} from './pages';
-import {PriorityQueue, Tree, Trie} from './data-structures';
+import {Library, PriorityQueue, Tree, Trie} from './data-structures';
 
 class RouteProvider{
 	getRoutes(){
@@ -15,6 +15,7 @@ class RouteProvider{
 					<Route path='asd'>
 						<Route path='abstract-data-structures'>
 							<IndexRoute component={AbstractDataStructures} />
+							<Route path='library' component={Library} />
 							<Route path='tree' component={Tree} />
 							<Route path='trie' component={Trie} />
 							<Route path='priority-queue' component={PriorityQueue} />
