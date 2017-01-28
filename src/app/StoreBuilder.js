@@ -21,7 +21,27 @@ class StoreBuilder{
 
 }
 
-const storeBuilder = new StoreBuilder();
+const initialState = {
+	asd: {
+		data_structures: [
+			{
+				name: 'Biblioteca',
+				key: 'library'
+			},
+			{
+				name: 'Coda con priorità',
+				key: 'priority-queue'
+			},
+			{
+				name: 'Trie',
+				key: 'trie'
+			}
+		]
+	},
+	routing: {}
+};
+
+const storeBuilder = new StoreBuilder( initialState );
 const store = storeBuilder.getStore();
 const dispatch = store.dispatch;
 const history = syncHistoryWithStore( hashHistory, store );

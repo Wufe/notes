@@ -1,8 +1,9 @@
 import * as React from 'react';
 import {Component} from 'react';
+import {connect} from 'react-redux';
 import {history} from '../..';
 
-export default class AbstractDataStructures extends Component{
+class AbstractDataStructures extends Component{
 
     constructor( props ){
         super(props);
@@ -16,19 +17,21 @@ export default class AbstractDataStructures extends Component{
     }
 
     render(){
+        let structureList = [];
+        for( let i = 0; i < this.props.asd.data_structures.length; i++ ){
+            const structure = this.props.asd.data_structures[i];
+            const url = "/asd/abstract-data-structures/" + structure.key;
+            structureList.push(
+                <li key={i}>
+                    <a onClick={this._onClick} href={url}>{structure.name}</a>
+                </li>
+            );
+        }
         return (
             <div>
                 <h2>Abstract Data Structures</h2>
                 <ul>
-                    <li>
-                        <a onClick={this._onClick} href="/asd/abstract-data-structures/library">Biblioteca</a>
-                    </li>
-                    <li>
-                        <a onClick={this._onClick} href="/asd/abstract-data-structures/priority-queue">Coda con priorità</a>
-                    </li>
-                    <li>
-                        <a onClick={this._onClick} href="/asd/abstract-data-structures/trie">Trie</a>
-                    </li>
+                    {structureList}
                 </ul>
 
             </div>
@@ -36,3 +39,11 @@ export default class AbstractDataStructures extends Component{
     }
 
 }
+
+const mapStateToProps = ( state ) => {
+    return {
+        asd: state.asd
+    }
+};
+
+export default connect(mapStateToProps)(AbstractDataStructures);
