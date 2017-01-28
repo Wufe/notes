@@ -12,7 +12,8 @@ export default class Trie extends Component{
     render(){
         return (
             <Spec
-                name="Trie">
+                name="Trie"
+                file="Scritto20090903.pdf">
                 <Axiomatic>
                     <Semantic>
                         <Sorts>
