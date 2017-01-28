@@ -45,11 +45,6 @@ class Navbar extends Component{
                                                         url: '/asd/abstract-data-structures',
                                                         links: [
                                                             {
-                                                                name: 'Albero',
-                                                                key: '/asd/abstract-data-structures/tree',
-                                                                url: '/asd/abstract-data-structures/tree'
-                                                            },
-                                                            {
                                                                 name: 'Biblioteca',
                                                                 key: '/asd/abstract-data-structures/library',
                                                                 url: '/asd/abstract-data-structures/library'
