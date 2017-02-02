@@ -7,6 +7,7 @@ import {Spec, Algebraic, Axiomatic,
         Sort, Sorts, Table, THead, TBody,
         Declare, Observation} from '../../components/specification';
 import * as MC from '../../math-constants';
+import * as MS from '../../math-symbols';
 
 export default class Trie extends Component{
     render(){
@@ -159,12 +160,14 @@ export default class Trie extends Component{
                             <I>primiCaratteri(intero,stringa) \rightarrow stringa</I><br />
                             che restituisce i primi <I>n</I> caratteri della stringa nel secondo parametro, dove <I>n</I> è il primo parametro.
                             <br /><br />
-                            Sono inoltre definiti due operatori d'ausilio alla creazione e all'utilizzo di elementi di tipo lista.<br />
+                            Sono inoltre definiti tre operatori d'ausilio alla creazione e all'utilizzo di elementi di tipo lista.<br />
                             La lista conterrà elementi di tipo stringa.<br />
                             <I>newList() \rightarrow lista</I><br />
                             che crea una lista vuota, <br />
                             <I>addList(stringa, lista) \rightarrow lista</I><br />
-                            che aggiunge un elemento di tipo stringa alla stringa.
+                            che aggiunge un elemento di tipo stringa alla stringa,<br />
+                            <I>dimStringa(stringa) \rightarrow {MS.MATHBB_N}</I><br />
+                            che restituisce la lunghezza di una stringa.
                         </Comment>
                         <Table>
                             <THead
@@ -248,7 +251,7 @@ export default class Trie extends Component{
                                             else
                                         </Line>
                                         <Line depth={1}>
-                                            if <I>dimensione(s') &lt; dimensione(s)</I> and <I>primiCaratteri(dimensione(s'), s) = s'</I> then
+                                            if <I>primiCaratteri(dimStringa(s'), s) = s'</I> then
                                         </Line>
                                         <Line depth={2}>
                                             <I>addList(s, prefisso(t,s'))</I>
