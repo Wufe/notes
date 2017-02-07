@@ -5,9 +5,11 @@ import './style.scss';
 export default class Table extends Component{
     render(){
         return (
-            <table className="algebraic-table">
-                {this.props.children}
-            </table>
+            <div className="algebraic-table-container">
+                <table className="algebraic-table">
+                    {this.props.children}
+                </table>
+            </div>
         );
     }
 }
