@@ -1,0 +1,183 @@
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.Random;
+
+
+public class OrdinaArray {
+
+	/*
+	 * Algoritmo bubblesort per l'ordinamento di un array di interi A
+	 * usando come relazione d'ordine totale "<="
+	 * @param A
+	*/
+	static int bubblesort(int A[]){ 
+		int numeroConfronti=0;
+		for (int i=1; i<=A.length-1; i++){
+			boolean scambiAvvenuti = false;
+			for (int j=1;j<= A.length-i;j++)
+			{	
+				numeroConfronti++;
+				if(A[j]< A[j-1])
+				{
+					int temp=A[j];
+					A[j]=A[j-1];
+					A[j-1]=temp;
+					scambiAvvenuti=true;
+				}
+			}
+			if(!scambiAvvenuti) break;
+		}
+		return numeroConfronti;
+	}
+
+	/*
+	 * Partiziona il vettore rispetto all'elemento x e restiutisce il punto di separazione
+	 */
+	private static  int partition(int A[], int inf, int sup, int []numConfronti){
+		int i,j;
+		numConfronti[0]=0;
+		i=inf; 
+		j=sup; 
+		int	med=(inf+sup)/2;
+		int x=A[med];
+		int temp=A[inf];
+		A[inf]=A[med];
+		A[med]=temp;
+		while (true) 
+		{
+			numConfronti[0]++;
+			while(i<=sup && A[i]<=x){ i++; 
+				numConfronti[0]++;
+			}
+			numConfronti[0]++;
+			while(A[j]>x) {j--;
+				numConfronti[0]++;
+			}
+			
+			if(i<j) { 
+				temp=A[i];
+				A[i]=A[j];
+				A[j]=temp;
+			}
+			else break;
+		}
+		temp=A[inf];
+		A[inf]=A[j];
+		A[j]=temp;
+		return j;
+
+	}
+	
+	
+	/*
+	 * Algoritmo quicksort per l'ordinamento di un array di interi A
+	 * usando come relazione d'ordine totale "<="
+	 * @param A
+	 */
+	static int quicksort(int A[], int inf, int sup){
+		int numConfronti=0;
+		
+		//To be implemented as exercise
+		
+		return numConfronti;
+	}
+	
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+		int i, maxDim, step;
+		int contatoreCasualeBubble,contatoreCrescenteBubble,contatoreDecrescenteBubble;
+		int contatoreCasualeQuick,contatoreCrescenteQuick,contatoreDecrescenteQuick;
+		int contatoreCasualeMerge,contatoreCrescenteMerge,contatoreDecrescenteMerge;
+		maxDim=new Integer(args[0]).intValue();
+		step=new Integer(args[1]).intValue();
+		try{
+		    FileOutputStream file = new FileOutputStream("statistica.csv");
+		    PrintStream Output = new PrintStream(file);
+		    Output.println("dimArray, nroConfrontiBubbleCasuale, nroConfrontiBubbleCrescente, nroConfrontiBubbleDecrescente, nroConfrontiQuickCasuale, nroConfrontiQuickCrescente, nroConfrontiQuickDecrescente");
+			
+			for(i=step; i<=maxDim; i+=step)
+			{
+				int A[]=new int[i];
+				int temp[]=new int[i];
+				System.out.println("Array di dimensione " + i);
+				System.out.println("***************************************************");
+				System.out.println("Uso del generatore di numeri casuali");
+				inizializzaArrayCasuale(temp);
+				A=Arrays.copyOf(temp,temp.length);
+				System.out.println("Bubble sort");
+				stampaArray(A);
+				contatoreCasualeBubble=bubblesort(A);
+				System.out.print(": " + contatoreCasualeBubble + " confronti per ottenere ");
+				stampaArray(A);
+				System.out.println("");
+				
+					
+				System.out.println("Quicksort sort");
+				A=Arrays.copyOf(temp,temp.length);
+				stampaArray(A);
+				contatoreCasualeQuick=quicksort(A,0,A.length-1);
+				System.out.print(": " + contatoreCasualeQuick + " confronti per ottenere ");
+				stampaArray(A);
+				System.out.println("");
+				
+				
+				//
+				System.out.println("Uso del generatore di numeri in ordine crescente");
+				inizializzaArrayCrescente(temp);
+				A=Arrays.copyOf(temp,temp.length);
+				System.out.println("Bubble sort");
+				stampaArray(A);
+				contatoreCrescenteBubble=bubblesort(A);
+				System.out.print(": " + contatoreCrescenteBubble + " confronti per ottenere ");
+				stampaArray(A);
+				System.out.println("");
+				
+				System.out.println("Quicksort sort");
+				A=Arrays.copyOf(temp,temp.length);
+				stampaArray(A);
+				contatoreCrescenteQuick=quicksort(A,0,A.length-1);
+				System.out.print(": " + contatoreCrescenteQuick + " confronti per ottenere ");
+				stampaArray(A);
+				System.out.println("");
+								
+								
+				//
+				System.out.println("Uso del generatore di numeri in ordine decrescente");
+				inizializzaArrayDecrescente(temp);
+				A=Arrays.copyOf(temp,temp.length);
+				System.out.println("Bubble sort");
+				stampaArray(A);
+				contatoreDecrescenteBubble=bubblesort(A);
+				System.out.print(": " + contatoreDecrescenteBubble + " confronti per ottenere ");
+				stampaArray(A);
+				System.out.println("");
+				
+								
+				System.out.println("Quicksort sort");
+				A=Arrays.copyOf(temp,temp.length);
+				stampaArray(A);
+				contatoreDecrescenteQuick=quicksort(A,0,A.length-1);
+				System.out.print(": " + contatoreDecrescenteQuick + " confronti per ottenere ");
+				stampaArray(A);
+				System.out.println("");
+				
+							
+				Output.println(i+","+contatoreCasualeBubble+","+contatoreCrescenteBubble+","+contatoreDecrescenteBubble+","+contatoreCasualeQuick+","+contatoreCrescenteQuick+","+contatoreDecrescenteQuick);
+			}
+			Output.close();
+		}
+		catch (IOException e) {
+	      System.out.println("Errore: " + e);
+	      System.exit(1);
+	    }
+		
+
+	}
+}
+

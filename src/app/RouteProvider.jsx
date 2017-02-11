@@ -3,8 +3,9 @@ import * as ReactRouter from 'react-router';
 import {IndexRoute, Route, Router} from 'react-router';
 import {dispatch, history} from '.';
 import {Structure} from './components';
-import {AbstractDataStructures, Home} from './pages';
+import {AbstractDataStructures, Home, SlideIndex} from './pages';
 import {Library, PriorityQueue, Tree, Trie} from './data-structures';
+import {Official, Hidden, Lab} from './slides';
 
 class RouteProvider{
 	getRoutes(){
@@ -19,6 +20,12 @@ class RouteProvider{
 							<Route path='tree' component={Tree} />
 							<Route path='trie' component={Trie} />
 							<Route path='priority-queue' component={PriorityQueue} />
+						</Route>
+						<Route path='slides'>
+							<IndexRoute component={SlideIndex} />
+							<Route path='official' component={Official} />
+							<Route path='hidden' component={Hidden} />
+							<Route path='lab' component={Lab} />
 						</Route>
 					</Route>
 				</Route>

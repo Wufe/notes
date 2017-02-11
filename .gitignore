@@ -2,6 +2,7 @@
 
 build/resources/assets/javascript/*
 analysis
+.vscode
 
 
 

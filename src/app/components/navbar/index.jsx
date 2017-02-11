@@ -48,6 +48,29 @@ class Navbar extends Component{
                         url: '/asd/abstract-data-structures',
                         links: asdLinks,
                         isExpanded: true
+                    },
+                    {
+                        name: 'Slides',
+                        key: '/asd/slides',
+                        url: '/asd/slides',
+                        links: [
+                            {
+                                name: 'Ufficiali 2014-2015',
+                                key: '/asd/slides/official',
+                                url: '/asd/slides/official'
+                            },
+                            {
+                                name: 'Nascoste 2011-2012',
+                                key: '/asd/slides/hidden',
+                                url: '/asd/slides/hidden'
+                            },
+                            {
+                                name: 'Laboratorio 2014-2015',
+                                key: '/asd/slides/lab',
+                                url: '/asd/slides/lab'
+                            }
+                        ],
+                        isExpanded: true
                     }],
                     isExpanded: true
                 }],
