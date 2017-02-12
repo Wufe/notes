@@ -11,9 +11,9 @@ export default class Lab extends Component{
                     <li>
                         <a href="resources/slides/lab/lab1.pdf" target="_blank">Sessione 1</a>
                         <a href="resources/slides/lab/OrdinaArray.java" target="_blank">OrdinaArray.java</a>
-                        <a href="resources/slides/lab/Random.htm" target="_blank">Random class</a>
-                        <a href="resources/slides/lab/System.htm" target="_blank">System.arraycopy</a>
-                        <a href="resources/slides/lab/Arrays.htm" target="_blank">Arrays.copy</a>
+                        <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Random.html" target="_blank">Random class</a>
+                        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/System.html#arraycopy-java.lang.Object-int-java.lang.Object-int-int-" target="_blank">System.arraycopy</a>
+                        <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html#copyOf-boolean:A-int-" target="_blank">Arrays.copyOf</a>
                     </li>
                 </ul>
                 <ul>

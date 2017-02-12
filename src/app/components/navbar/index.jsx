@@ -60,14 +60,14 @@ class Navbar extends Component{
                                 url: '/asd/slides/official'
                             },
                             {
-                                name: 'Nascoste 2011-2012',
-                                key: '/asd/slides/hidden',
-                                url: '/asd/slides/hidden'
-                            },
-                            {
                                 name: 'Laboratorio 2014-2015',
                                 key: '/asd/slides/lab',
                                 url: '/asd/slides/lab'
+                            },
+                            {
+                                name: '2011-2012',
+                                key: '/asd/slides/hidden',
+                                url: '/asd/slides/hidden'
                             }
                         ],
                         isExpanded: true

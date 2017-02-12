@@ -5,7 +5,7 @@ export default class Hidden extends Component{
     render(){
         return (
             <div>
-                <h1>Nascoste (2011-2012)</h1>
+                <h1>2011-2012</h1>
                 <ul>
                     <li>
                         <a href="resources/slides/2011-2012/dizionario.pdf" target="_blank">Dizionario</a>
